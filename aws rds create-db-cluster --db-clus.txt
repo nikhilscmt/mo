@@ -1,0 +1,15 @@
+aws rds create-db-cluster --db-cluster-identifier sample-cluster \
+    --engine aurora-mysql --engine-version 8.0 \
+    --storage-type aurora-iopt1 \
+    --db-subnet-group-name default --vpc-security-group-ids sg-005855dbc397119f0
+
+
+aws rds create-db-instance --db-instance-identifier sample-instance \
+     --db-cluster-identifier sample-cluster --engine aurora-mysql --db-instance-class db.r5.large
+
+aws rds create-db-cluster --availability-zones ap-northeast-1 ap-northeast-3 \
+    --db-cluster-identifier sample-cluster \
+    --engine aurora-mysql --engine-version 8.0 \
+    --db-subnet-group-name default --vpc-security-group-ids sg-005855dbc397119f0
+    --storage-type aurora-iopt1 \
+    --db-subnet-group-name default --vpc-security-group-ids sg-005855dbc397119f0
